@@ -14,5 +14,9 @@
 	"Remise : 14 février 2018": "Remise : 14 février 2018",
 	"Projet utilisant Node.js, Express et MongoDB pour développer une application Web de gestion de membres": "Projet utilisant Node.js, Express et MongoDB pour développer une application Web de gestion de membres",
 	"Projet Veille Node.js": "Projet Veille Node.js",
-	"Tim - Collège de Maisonneuve": "Tim - Collège de Maisonneuve"
+	"Tim - Collège de Maisonneuve": "Tim - Collège de Maisonneuve",
+	"nom": "Nom",
+	"prenom": "Prenom",
+	"telephone": "Telephone",
+	"Ajouter": "Ajouter"
 }
