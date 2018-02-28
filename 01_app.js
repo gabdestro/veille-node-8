@@ -36,8 +36,8 @@ app.get("/:local(en|fr)", (req,res) => {
 });
 
 app.get("/", (req,res) => { 
-	console.log(req.cookie.langueChoisie);
-
+	console.log(req.cookies.langueChoisie);
+		res.render('accueil.ejs');
 });
 
 
@@ -63,12 +63,6 @@ Les routes
 app.set('view engine', 'ejs'); // générateur de template
 
 
-//////////////////////////////////////////
-app.get('/', function (req, res) {
-
- res.render('accueil.ejs')  
- 
-  });
 
 
 
