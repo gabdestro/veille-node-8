@@ -18,5 +18,13 @@
 	"nom": "Nom",
 	"prenom": "Prenom",
 	"telephone": "Telephone",
-	"Ajouter": "Ajouter"
+	"Ajouter": "Ajouter",
+	"nom2": "Nom",
+	"prenom2": "Prenom",
+	"telephone2": "Telephone",
+	"courriel2": "Courriel",
+	"NomLst": "Nom",
+	"PrenomLst": "Prenom",
+	"TéléphoneLst": "Téléphone",
+	"CourrielLst": "Courriel"
 }

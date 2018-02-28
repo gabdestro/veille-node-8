@@ -18,5 +18,13 @@
 	"nom": "last name",
 	"prenom": "first name",
 	"telephone": "phone",
-	"Ajouter": "Add"
+	"Ajouter": "Add",
+	"nom2": "last name",
+	"prenom2": "first name",
+	"telephone2": "phone",
+	"courriel2": "Email",
+	"NomLst": "Last name",
+	"PrenomLst": "Lirst name",
+	"TéléphoneLst": "Phone",
+	"CourrielLst": "Email"
 }
