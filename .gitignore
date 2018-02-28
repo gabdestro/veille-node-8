@@ -1,0 +1,6 @@
+data_mongo/
+node_modules/
+css/*.css
+!css/normalize.css
+
+
