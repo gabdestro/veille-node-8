@@ -12,6 +12,10 @@
 				 <a href='/adresse'><i class="fa fa-graduation-cap" aria-hidden="true"></i><%= __("adresse") %></a>
 			</nav> 
 			<form class='recherche'  action='/adresse' name="recherche" id="recherche">
+				
+				<a href="/en">EN</a>
+				<a href="/fr">| FR</a>
+			   
 			    <input type="text" name="recherche" 
 			    value="<%= (typeof recherche == 'undefined')? '' : recherche %>">
 			    <button><i class="fas fa-search"></i></button>

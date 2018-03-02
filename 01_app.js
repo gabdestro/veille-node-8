@@ -15,6 +15,8 @@ const cookieParser = require('cookie-parser');
 
 app.use(cookieParser());
 app.use(express.static('public'));
+
+app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}));
 
 /* Ajoute l'objet i18n à l'objet global «res» */
@@ -32,13 +34,14 @@ app.get("/:local(en|fr)", (req,res) => {
 	res.cookie("langueChoisie",req.params.local);
 	res.setLocale(req.params.local);
 	//console.log(res.__("courriel"));
-	res.render('accueil.ejs');
+	res.redirect(req.get("referer"));
 });
 
 app.get("/", (req,res) => { 
 	console.log(req.cookies.langueChoisie);
 		res.render('accueil.ejs');
 });
+
 
 
 let db // variable qui contiendra le lien sur la BD
@@ -100,7 +103,17 @@ req.body._id = 	ObjectID(req.body._id)
 	 res.redirect('/adresse')
 	 })
 })
-
+////////////////////////////////////////  Route /modifier
+app.post('/ajax_modifier', (req, res) => {
+console.log('route /ajax_modifier')
+// console.log('util = ' + util.inspect(req.body));
+req.body._id = 	ObjectID(req.body._id)
+ db.collection('adresse').save(req.body, (err, result) => {
+	 if (err) return console.log(err)
+	 	console.log('sauvegarder dans la BD')
+	 	res.send(JSON.stringify(req.body));
+	 })
+})
 
 ////////////////////////////////////////  Route /detruire
 app.get('/detruire/:id', (req, res) => {
@@ -112,11 +125,24 @@ app.get('/detruire/:id', (req, res) => {
  .findOneAndDelete({"_id": ObjectID(req.params.id)}, (err, resultat) => {
 
 if (err) return console.log(err)
- res.redirect('/adresse')  // redirige vers la route qui affiche la collection
+	res.send(JSON.stringify(req.body));
+ //res.redirect('/adresse')  // redirige vers la route qui affiche la collection
  })
 })
 
+app.post('/ajax_detruire', (req, res) => {
+console.log('route /ajax_detruire')
 
+ var id = req.params.id
+ console.log(id)
+
+ db.collection('adresse')
+ .findOneAndDelete({"_id": ObjectID(req.params.id)}, (err, resultat) => {
+
+if (err) return console.log(err)
+ res.redirect('/adresse')  // redirige vers la route qui affiche la collection
+ })
+})
 ///////////////////////////////////////////////////////////   Route /trier
 app.get('/trier/:cle/:ordre', (req, res) => {
 
@@ -141,5 +167,7 @@ app.get('/vider', (req, res) => {
 		})
 	res.redirect('/adresse')
 })
+
+
 
 
